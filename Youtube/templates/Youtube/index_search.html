@@ -1,0 +1,87 @@
+{% extends 'Youtube/base.html' %}
+{% block content %}
+  <h1>Hello, world!</h1>
+
+    <form action="" method="post">
+    {% csrf_token %}
+  <div class="row">
+      <div class="col">
+          <div class="collapse multi-collapse" id="filter1">
+              <div class="card card-body">
+                  <div class="container">
+                      {{ form.non_field_errors }}
+                      <div class="row">
+                          <div class="col-sm">
+                              <div class="fieldWrapper">
+                                  {{ form.channelId.errors }}
+                                  <label for="{{ form.channelId.id_for_label }}">channelId:</label>
+                                  {{ form.channelId }}
+                              </div>
+                              <div class="fieldWrapper">
+                                  {{ form.eventType.errors }}
+                                  <label for="{{ form.eventType.id_for_label }}">eventType:</label>
+                                  {{ form.eventType }}
+                              </div>
+                              <div class="fieldWrapper">
+                                  {{ form.v_type.errors }}
+                                  <label for="{{ form.v_type.id_for_label }}">v_type:</label>
+                                  {{ form.v_type }}
+                              </div>
+                          </div>
+                          <div class="col-sm">
+                              <div class="fieldWrapper">
+                                  {{ form.location.errors }}
+                                  <label for="{{ form.location.id_for_label }}">location:</label>
+                                  {{ form.location }}
+                              </div>
+                              <div class="fieldWrapper">
+                                  {{ form.locationRadius.errors }}
+                                  <label for="{{ form.locationRadius.id_for_label }}">locationRadius:</label>
+                                  {{ form.locationRadius }}
+                              </div>
+                              <div class="fieldWrapper">
+                                  {{ form.maxResults.errors }}
+                                  <label for="{{ form.maxResults.id_for_label }}">maxResults:</label>
+                                  {{ form.maxResults }}
+                              </div>
+                          </div>
+                          <div class="col-sm">
+                              <div class="fieldWrapper">
+                                  {{ form.order.errors }}
+                                  <label for="{{ form.order.id_for_label }}">Order:</label>
+                                  {{ form.order }}
+                              </div>
+                              <div class="fieldWrapper">
+                                  {{ form.videoDuration.errors }}
+                                  <label for="{{ form.videoDuration.id_for_label }}">videoDuration:</label>
+                                  {{ form.videoDuration }}
+                              </div>
+                          </div>
+                          <div class="col-sm">
+                              <div class="fieldWrapper">
+                                  {{ form.publishedAfter.errors }}
+                                  <label for="{{ form.publishedAfter.id_for_label }}">publishedAfter:</label>
+                                  {{ form.publishedAfter }}
+                              </div>
+                              <div class="fieldWrapper">
+                                  {{ form.publishedBefore.errors }}
+                                  <label for="{{ form.publishedBefore.id_for_label }}">publishedBefore:</label>
+                                  {{ form.publishedBefore }}
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+        {{ form.search_text }}
+        <input type="submit" class="btn btn-secondary" value="Go">
+        <a class="btn btn-secondary" data-bs-toggle="collapse" href="#filter1" role="button"
+         aria-expanded="false" aria-controls="filter1">Filter</a>
+    </form>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+          crossorigin="anonymous"></script>
+{% endblock %}
