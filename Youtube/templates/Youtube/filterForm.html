@@ -1,0 +1,79 @@
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.q }}
+    <input type="submit" class="btn btn-secondary" value="Go">
+    <a class="btn btn-secondary" data-bs-toggle="collapse" href="#filter1" role="button"
+       aria-expanded="false" aria-controls="filter1">Filter</a>
+    <div class="row">
+        <div class="col">
+            <div class="collapse multi-collapse" id="filter1">
+                <div class="card card-body">
+                    <div class="container">
+                        {{ form.non_field_errors }}
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="fieldWrapper">
+                                    {{ form.channelId.errors }}
+                                    <label for="{{ form.channelId.id_for_label }}">channelId:</label>
+                                    {{ form.channelId }}
+                                </div>
+                                <div class="fieldWrapper">
+                                    {{ form.eventType.errors }}
+                                    <label for="{{ form.eventType.id_for_label }}">eventType:</label>
+                                    {{ form.eventType }}
+                                </div>
+                                <div class="fieldWrapper">
+                                    {{ form.type.errors }}
+                                    <label for="{{ form.type.id_for_label }}">type:</label>
+                                    {{ form.type }}
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="fieldWrapper">
+                                    {{ form.location.errors }}
+                                    <label for="{{ form.location.id_for_label }}">location:</label>
+                                    {{ form.location }}
+                                </div>
+                                <div class="fieldWrapper">
+                                    {{ form.location_radius.errors }}
+                                    <label for="{{ form.location_radius.id_for_label }}">location_radius:</label>
+                                    {{ form.location_radius }}
+                                </div>
+                                <div class="fieldWrapper">
+                                    {{ form.maxResults.errors }}
+                                    <label for="{{ form.maxResults.id_for_label }}">maxResults:</label>
+                                    {{ form.maxResults }}
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="fieldWrapper">
+                                    {{ form.order.errors }}
+                                    <label for="{{ form.order.id_for_label }}">Order:</label>
+                                    {{ form.order }}
+                                </div>
+                                <div class="fieldWrapper">
+                                    {{ form.videoDuration.errors }}
+                                    <label for="{{ form.videoDuration.id_for_label }}">videoDuration:</label>
+                                    {{ form.videoDuration }}
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="fieldWrapper">
+                                    {{ form.publishedAfter.errors }}
+                                    <label for="{{ form.publishedAfter.id_for_label }}">publishedAfter:</label>
+                                    {{ form.publishedAfter }}
+                                </div>
+                                <div class="fieldWrapper">
+                                    {{ form.publishedBefore.errors }}
+                                    <label for="{{ form.publishedBefore.id_for_label }}">publishedBefore:</label>
+                                    {{ form.publishedBefore }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
