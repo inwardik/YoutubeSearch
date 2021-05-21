@@ -14,7 +14,7 @@ class SearchForm(forms.Form):
     eventType = forms.ChoiceField(label='eventType', choices=channel_id_choises, required=False)
     type = forms.ChoiceField(label='v_type', choices=v_type_choises, required=False)
     order = forms.ChoiceField(label='order', choices=order_choises, required=False)
-    location = forms.CharField(max_length=37, required=False,
+    location = forms.CharField(max_length=38, required=False,
                                 widget=forms.TextInput(attrs={'placeholder': '49.62204323535563, 34.5206964068785'}))
     location_radius = forms.IntegerField(min_value=0, max_value=1000, required=False)
     maxResults = forms.IntegerField(min_value=1, max_value=50, initial=1)

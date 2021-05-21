@@ -28,7 +28,21 @@
                                         <a href="https://www.youtube.com/watch?v={{ item.id.videoId }}">{{ item.snippet.title }}</a>
                                     </h5>
                                     <p class="card-text">{{ item.snippet.description }}</p>
-                                    <p class="card-text"><small class="text-muted">{{ item.snippet.publishTime }}</small></p>
+                                    <p class="card-text"><small
+                                            class="text-muted">{{ item.snippet.publishTime }}</small></p>
+                                    <button type="button" class="btn btn-secondary btn-sm">detail</button>
+
+
+                                    <div class="card" id="card-detail-{{ forloop.counter }}" style="display: none">
+                                        <div class="card-body">
+                                            This is some text within a card body.
+                                            This is some text within a card body.
+                                            This is some text within a card body.
+                                            This is some text within a card body.
+                                            This is some text within a card body.
+                                            This is some text within a card body.
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
