@@ -1,28 +1,67 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <title>{% block title %}
-    Base title
+        Base title
     {% endblock %}</title>
-      <style type="text/css">
-          .fieldWrapper {background-color: azure}
-          .fieldWrapper input, select {width: 100%; margin-top: 5px}
-          .multi-collapse {background-color: lightgray}
+    <style type="text/css">
+        .fieldWrapper {
+            background-color: azure
+        }
 
-      </style>
-  </head>
-  <body>
+        .fieldWrapper input, select {
+            width: 100%;
+            margin-top: 5px
+        }
+
+        .multi-collapse {
+            background-color: lightgray
+        }
+
+        #map {
+            height: 100%;
+        }
+
+        div#map a,
+        div#map button,
+        div.gm-bundled-control div.gmnoprint {
+            display: none !important;
+        }
+
+    </style>
+</head>
+<body>
 {% block content %}
 
 {% endblock %}
-
+<script type="application/javascript">
+    function initMap() {
+        const myLatlng = {lat: 50.44, lng: 30.46};
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 4,
+            center: myLatlng,
+        });
+        map.addListener("click", (mapsMouseEvent) => {
+            //let coord = JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2);
+            let coord = mapsMouseEvent.latLng.toJSON();
+            loc_value = coord.lat.toString() + ", " + coord.lng.toString()
+            document.getElementById("id_location").value = loc_value;
+            document.getElementById("id_location_radius").value = 10;
+        });
+    }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-          crossorigin="anonymous"></script>
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmVfqK9tJKNKcV9ochOOSetUyb_cGKo6Y&callback=initMap&libraries=&v=weekly"
+        async
+></script>
 
-  </body>
+</body>
 </html>
