@@ -2,19 +2,20 @@ import json
 import requests
 from datetime import datetime
 
-def get_videos_links(params):
+def get_videos_links(params, is_post=True):
     params['key'] = 'AIzaSyAmVfqK9tJKNKcV9ochOOSetUyb_cGKo6Y'
     params['part'] = 'snippet'
-    params['maxResults'] = str(params['maxResults'])
-    if params.get('publishedAfter'):
-        params['publishedAfter'] = params['publishedAfter'].strftime("%Y-%m-%dT%H:%M:%SZ")
-    if params.get('publishedBefore'):
-        params['publishedBefore'] = params['publishedBefore'].strftime("%Y-%m-%dT%H:%M:%SZ")
-
-    #params['publishedAfter'] = '2021-04-01T00:00:00Z',  # Must be deleted
-    if params['location_radius']:
-        params['type'] = 'video'
-        params['location_radius'] = str(params['location_radius']) + 'km'
+    if is_post:
+        params['maxResults'] = str(params['maxResults'])
+        if params.get('publishedAfter'):
+            params['publishedAfter'] = params['publishedAfter'].strftime("%Y-%m-%dT%H:%M:%SZ")
+        if params.get('publishedBefore'):
+            params['publishedBefore'] = params['publishedBefore'].strftime("%Y-%m-%dT%H:%M:%SZ")
+        if params['location_radius']:
+            params['type'] = 'video'
+            params['location_radius'] = str(params['location_radius']) + 'km'
+    else:
+        params['maxResults'] = '10'
     for key, value in params.copy().items():
         if not value:
             del (params[key])

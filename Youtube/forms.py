@@ -17,7 +17,8 @@ class SearchForm(forms.Form):
     location = forms.CharField(max_length=38, required=False,
                                 widget=forms.TextInput(attrs={'placeholder': '49.62204323535563, 34.5206964068785'}))
     location_radius = forms.IntegerField(min_value=0, max_value=1000, required=False)
-    maxResults = forms.IntegerField(min_value=1, max_value=50, initial=1)
+    maxResults = forms.IntegerField(min_value=1, max_value=50, initial=5)
     videoDuration = forms.ChoiceField(label='order', choices=duration_choises, required=False)
     publishedAfter = forms.DateField(widget=NumberInput(attrs={'type': 'date'}), required=False)
     publishedBefore = forms.DateField(widget=NumberInput(attrs={'type': 'date'}), required=False)
+    relatedToVideoId = forms.CharField(label='relatedToVideoId', max_length=100, required=False)

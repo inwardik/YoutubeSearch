@@ -68,6 +68,11 @@
                                     <label for="{{ form.publishedBefore.id_for_label }}">publishedBefore:</label>
                                     {{ form.publishedBefore }}
                                 </div>
+                                <div class="fieldWrapper">
+                                    {{ form.relatedToVideoId.errors }}
+                                    <label for="{{ form.relatedToVideoId.id_for_label }}">relatedToVideoId:</label>
+                                    {{ form.relatedToVideoId }}
+                                </div>
                             </div>
                             <div class="col-sm">
                                 <div id="map-wrapper" style="height: 200px; width: 200px">
