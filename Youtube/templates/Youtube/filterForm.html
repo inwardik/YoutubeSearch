@@ -1,9 +1,12 @@
 <form action="" method="post">
     {% csrf_token %}
-    {{ form.q }}
-    <input type="submit" class="btn btn-secondary" value="Go">
-    <a class="btn btn-secondary" data-bs-toggle="collapse" href="#filter1" role="button"
-       aria-expanded="false" aria-controls="filter1">Filter</a>
+    <div id="search-field">
+        {{ form.q }}
+        <input type="submit" class="btn btn-secondary" value="Go">
+        <a class="btn btn-secondary" data-bs-toggle="collapse" href="#filter1" role="button"
+           aria-expanded="false" aria-controls="filter1">Filter</a>
+    </div>
+
     <div class="row">
         <div class="col">
             <div class="collapse multi-collapse" id="filter1">

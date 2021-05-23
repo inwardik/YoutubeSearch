@@ -2,6 +2,7 @@ from django import forms
 from django.forms.widgets import NumberInput
 
 
+
 class SearchForm(forms.Form):
     channel_id_choises = (('', ''), ('completed', 'completed'), ('live', 'live'), ('upcoming', 'upcoming'),)
     v_type_choises = (('', ''), ('channel', 'channel'), ('playlist', 'playlist'), ('video', 'video'),)
@@ -22,3 +23,19 @@ class SearchForm(forms.Form):
     publishedAfter = forms.DateField(widget=NumberInput(attrs={'type': 'date'}), required=False)
     publishedBefore = forms.DateField(widget=NumberInput(attrs={'type': 'date'}), required=False)
     relatedToVideoId = forms.CharField(label='relatedToVideoId', max_length=100, required=False)
+
+    def clean(self):
+        data = super().clean()
+        location = data.get('location')
+        location_radius = data.get('location_radius')
+        published_after = data.get('publishedAfter')
+        published_before = data.get('publishedBefore')
+
+        if location and not location_radius:
+            raise forms.ValidationError('you need to set location_radius if you want to use location')
+        if published_after and published_before:
+            if published_after >= published_before:
+                raise forms.ValidationError('published_after should be less then published_before')
+        return data
+
+

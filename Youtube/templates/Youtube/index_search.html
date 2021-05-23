@@ -4,7 +4,8 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Youtube search with filters</h1>
+    <div id="header-block"><h1>Youtube <span>can</span> search with <span>human</span> filters</h1></div>
+
 
     {% include 'Youtube/filterForm.html' %}
 
@@ -15,7 +16,7 @@
                 <div class="col col-lg-2">
                 </div>
                 <div class="col-md-auto">
-                    <div class="card mb-3" style="max-width: 800px;">
+                    <div class="card mb-3 card-search">
                         <div class="row g-0">
                             <div class="col-md-4">
                                 <a href="https://www.youtube.com/watch?v={{ item.id.videoId }}"><img
@@ -30,10 +31,6 @@
                                     <p class="card-text">{{ item.snippet.description }}</p>
                                     <p class="card-text"><small
                                             class="text-muted">{{ item.snippet.publishTime }}</small></p>
-                                    <form action="" method="get">
-                                        <input type="text" name="related_video" value="{{ item.id.videoId }}">
-                                        <input type="submit" value="related video" class="btn btn-secondary btn-sm">
-                                    </form>
                                     <button type="button" class="btn btn-secondary btn-sm">detail</button>
 
 

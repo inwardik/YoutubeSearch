@@ -1,0 +1,39 @@
+.fieldWrapper {
+    color: dimgrey;
+}
+
+.fieldWrapper input, select {
+    width: 100%;
+    margin-top: 5px
+}
+
+.multi-collapse {
+    background-color: lightgray
+}
+
+#map {
+    height: 100%;
+}
+
+div#map a,
+div#map button,
+div.gm-bundled-control div.gmnoprint {
+    display: none !important;
+}
+
+#header-block span{
+    color: white;
+}
+
+#header-block{
+    background-color: #747490;
+    text-align: center;
+}
+
+#search-field{
+    text-align: center;
+}
+
+.card-search{
+    width: 850px;
+}
