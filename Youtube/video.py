@@ -1,9 +1,9 @@
 import json
 import requests
-
+API_KEY = 'AIzaSyAmVfqK9tJKNKcV9ochOOSetUyb_cGKo6Y'
 
 def get_videos_links(params):
-    params['key'] = 'AIzaSyAmVfqK9tJKNKcV9ochOOSetUyb_cGKo6Y'
+    params['key'] = API_KEY
     params['part'] = 'snippet'
     params['maxResults'] = str(params['maxResults'])
     if params.get('publishedAfter'):
@@ -23,6 +23,17 @@ def get_videos_links(params):
     if resp_dict.get('items'):
         return resp_dict['items']
     return []
+
+
+def get_video_stat(video_id):
+    params = {'key': API_KEY, 'part': 'statistics', 'id': video_id}
+    url = 'https://youtube.googleapis.com/youtube/v3/videos'
+    r = requests.get(url, params=params)
+    resp_dict = json.loads(r.text)
+    statistics = resp_dict['items'][0]['statistics']
+    print(resp_dict)
+    return statistics
+
 
 #https://youtube.googleapis.com/youtube/v3/videos?part=statistics&id=bh9Txxt8z2M&key=AIzaSyAmVfqK9tJKNKcV9ochOOSetUyb_cGKo6Y
 #https://www.googleapis.com/youtube/v3/commentThreads?key=AIzaSyAmVfqK9tJKNKcV9ochOOSetUyb_cGKo6Y&textFormat=plainText&part=snippet&videoId=l3Px1lru8OI&maxResults=50

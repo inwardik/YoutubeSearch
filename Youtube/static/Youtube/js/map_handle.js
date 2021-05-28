@@ -3,6 +3,7 @@ function initMap() {
     const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 4,
         center: myLatlng,
+        draggableCursor:'crosshair'
     });
     map.addListener("click", (mapsMouseEvent) => {
         //let coord = JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2);
