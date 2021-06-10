@@ -19,21 +19,6 @@ let detail_load = function () {
     console.log('click')
 };
 
-function get_detail() {
-    $.ajax(
-        {
-            type: "GET",
-            url: "/detail",
-            data: {
-                page: 'page_num',
-            },
-
-            success: function (data) {
-                $("#div_sort").replaceWith(data);
-            }
-        })
-};
-
 function get_detail2(detail_block, videoId) {
     let request = new XMLHttpRequest();
     let url_addr = '/Youtube/detail?q=' + videoId.toString();

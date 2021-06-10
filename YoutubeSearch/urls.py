@@ -5,6 +5,7 @@ import Youtube
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Youtube/', include('Youtube.urls')),
-    path('', include('Youtube.urls')),
+    path('phoneinspace/', include('phoneinspace.urls')),
+    path('', include('inw.urls')),
 
 ]

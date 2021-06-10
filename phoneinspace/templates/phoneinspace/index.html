@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <link rel="stylesheet" href="{% static 'phoneinspace/css/style.css' %}">
+</head>
+<body>
+<div class="container">
+    <input type="hidden" id="py_coord" name="variable" value="{{ py_data }}">
+    <form method="get" action="">
+        <input type="text" id="phone_field" name="phone" placeholder="380" autofocus>
+        <input type="submit" value="Go">
+    </form>
+    <div id="text-block">Score: {{ py_data_dict.probability }}</div>
+</div>
+<div id="map"></div>
+
+
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script src="https://maps.googleapis.com/maps/api/js?key={{ api }}&callback=initMap&libraries=&v=weekly"
+        async
+></script>
+
+
+
+<script src="{% static 'phoneinspace/js/el_remove.js' %}"></script>
+<script src="{% static 'phoneinspace/js/init_map.js' %}"></script>
+</body>
+</html>

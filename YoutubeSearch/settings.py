@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Youtube.apps.YoutubeConfig',
+    'phoneinspace.apps.PhoneinspaceConfig',
+    'inw.apps.InwConfig'
 ]
 
 MIDDLEWARE = [
