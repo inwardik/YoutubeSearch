@@ -9,7 +9,11 @@
 </head>
 <body>
 <div class="container">
+    {% if py_data %}
     <input type="hidden" id="py_coord" name="variable" value="{{ py_data }}">
+        {% else %}
+        <input type="hidden" id="py_coord" name="variable" value='{"lat": 48.0, "lon": 37.0, "phone": "", "precision": 5, "probability": ""}'>
+    {% endif %}
     <form method="get" action="">
         <input type="text" id="phone_field" name="phone" placeholder="380" autofocus>
         <input type="submit" value="Go">

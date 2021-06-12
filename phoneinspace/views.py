@@ -2,8 +2,7 @@ from django.shortcuts import render
 import json
 from .phone import get_coords
 
-#API_KEY = 'AIzaSyAmVfqK9tJKNKcV9ochOOSetUyb_cGKo6Y&callback=initMap&libraries='
-API_KEY = ''
+API_KEY = 'AIzaSyAmVfqK9tJKNKcV9ochOOSetUyb_cGKo6Y&callback=initMap&libraries='
 
 def index(request):
     if request.method == 'GET':
